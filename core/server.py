@@ -15,11 +15,22 @@ TEMPLATE = '''
         <!doctype html>
         <title>Upload new File</title>
         <h1>Upload new File</h1>
-        <form action="/api" method=post enctype=multipart/form-data>
-            <p>图片 <input type=file    name=file></p>
-            <p>数量 <input value=3      name=top></p>
-            <p>网络 <input value=inc    name=net></p>
-            <p>语言 <input value=cn     name=lang></p>
+        <form action="/api" method="post" enctype="multipart/form-data">
+            <p>图片</p>
+            <input type="file" name="file">
+            <p>数量</p>
+            <input value=5 name="top">
+            <p>网络</p>
+            <select name="net">
+                <option value="vgg">VGG16</option>
+                <option value="res">Resnet50</option>
+                <option value="inc" selected="selected">InceptionV3</option>
+            </select>
+            <p>语言</p>
+            <select name="lang">
+                <option value="cn" selected="selected">中文</option>
+                <option value="en">英文</option>
+            </select>
             <p><input type=submit value=Upload></p>
         </form>
         '''
