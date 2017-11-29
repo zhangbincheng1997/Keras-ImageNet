@@ -1,6 +1,7 @@
 package com.redhat.bcml.util;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -18,10 +19,14 @@ import org.json.JSONObject;
 
 public class ImageNet {
 
-	private static String file = "D://dog.jpg";
+	private static String file = "D://tiger.jpg";
 
 	public static void main(String[] args) throws Exception {
-		JSONObject jsonObj = uploadFileImpl(Consts.IMAGE_NET, file, "file", null);
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("top", "5");
+		params.put("net", "inc");
+		params.put("lang", "cn");
+		JSONObject jsonObj = uploadFileImpl(Consts.IMAGE_NET_API, file, "file", params);
 		System.out.println(jsonObj.toString(2));
 	}
 
